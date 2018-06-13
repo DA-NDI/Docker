@@ -1,0 +1,8 @@
+#!/bin/bash
+IS_CHAR=$(docker-machine active)
+if [[ $IS_CHAR == "Char" ]];
+then
+	docker ps -s
+else
+	echo "Char is not active machine"
+fi

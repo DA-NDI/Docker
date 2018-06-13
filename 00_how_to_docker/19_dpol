@@ -1,0 +1,13 @@
+docker run -i -d \
+--name Abathur1 \
+-v /nfs/2017/d/dpolosuk:/root \
+-p 3000:3000 \
+python:2-slim
+docker exec Abathur1 pip install flask
+docker exec Abathur1 sh -c "echo 'from flask import Flask' > /root/Troyan.py"
+docker exec Abathur1 sh -c "echo 'app = Flask(__name__)' >> /root/Troyan.py"
+docker exec Abathur1 sh -c 'echo "@app.route(\"/\")" >> /root/Troyan.py'
+docker exec Abathur1 sh -c 'echo "def hello():" >> /root/Troyan.py'
+docker exec Abathur1 sh -c "echo '\treturn \"<h1>Hello World</h1>\"' >> /root/Troyan.py"
+#docker exec Abathur1 sh -c "export FLASK_APP=/root/Troyan.py"
+docker exec -e FLASK_APP=/root/Troyan.py -d Abathur1 flask run -h 0.0.0.0 -p 3000

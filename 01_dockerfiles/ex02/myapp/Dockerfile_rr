@@ -1,0 +1,10 @@
+FROM test/ft-rails
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+
+#to build first image
+# docker build -t test/ft-rails .  
+#to build image from image 
+# docker build -t test/rubyonrails -f Dockerfile_rr .
+# to run
+# docker run -p 3000:3000 --rm test/rubyonrails

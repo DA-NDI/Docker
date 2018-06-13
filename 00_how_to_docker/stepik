@@ -1,0 +1,6 @@
+2.3 sql
+docker run -it -d --name stepik_sql -e 'POSTGES_USER=postgres' parseq/stepik-exec-docker
+docker exec -it stepik_sql psql -U postgres -c '\dt'
+docker exec -it stepik_sql psql -U postgres -c 'TABLE answers'
+2.4 create image
+docker commit --change='ENTRYPOINT ["python3"]' create-image-from-me ubuntu:14.05

@@ -1,0 +1,2 @@
+#docker volume inspect hatchery // detailed info
+docker volume create --name hatchery

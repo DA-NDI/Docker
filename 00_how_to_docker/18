@@ -1,0 +1,3 @@
+# sh ./06 // if container is not active
+# recheck on checkform
+docker restart overlord

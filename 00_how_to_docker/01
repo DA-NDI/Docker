@@ -1,0 +1,6 @@
+# brew install docker
+# brew install docker-machine
+# mv ~/.docker /tmp/docker
+# ln -s ~/.docker /tmp/docker_temp // create symbolic link to avoid oversizing of docker folder
+# after relogin: mkdir /tmp/docker_temp
+docker-machine create -d virtualbox Char

@@ -1,0 +1,24 @@
+docker-machine create -d virtualbox Char // create vm
+docker-machine rm Char // remove vm
+if docker is not working
+docker-machine start # Start virtual machine for docker
+docker-machine env  # It's helps to get environment variables
+eval "$(docker-machine env default)" # Set environment variables (only from terminal, not as exec)
+
+
+docker run <image> // create container from image
+docker rmi // delete image. but only if no containers for this images
+docker rm // delete container
+docker container ls // list all containers (--all for all and default are running)
+docker images || docker ps -a // get list of all images (ps for active images)
+commit // create new image from container
+-it // i - interactive, t - terminal
+docker rm $(docker ps -a | grep -v "_data" | awk 'NR>1 {print $1}') // Удалить все контейнеры кроме тех, который оканчиваются на '_data':
+14 exercise //https://www.deploycontainers.com/2017/12/29/running-wordpress-mysql-docker-containers/
+docker ps -aq // display only names of containers. for ex: docker rm 'docker ps -aq'
+docker ps -s || docker container ls -s // display container and size
+docker run --rm -it -v /etc/sudoers.d:/root alpine
+echo "user_name ALL=(ALL) ALL" > helloroot
+chmod 0440 helloroot
+mv helloroot /etc/sudoers.d/
+you can add superuser file and make your user superuser (don't work in unit)
